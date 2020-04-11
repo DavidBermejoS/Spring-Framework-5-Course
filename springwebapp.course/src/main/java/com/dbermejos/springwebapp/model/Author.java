@@ -1,4 +1,4 @@
-package com.dbermejos.springwebapp.course.model;
+package com.dbermejos.springwebapp.model;
 
 import java.util.Set;
 /**

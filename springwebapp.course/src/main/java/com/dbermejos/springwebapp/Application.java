@@ -1,4 +1,4 @@
-package com.dbermejos.springwebapp.course;
+package com.dbermejos.springwebapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
