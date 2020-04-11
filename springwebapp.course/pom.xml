@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dbermejos</groupId>
-	<artifactId>springwebapp.course</artifactId>
+	<artifactId>springwebapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springwebapp.course</name>
 	<description>Project Example of a Spring web App.</description>
