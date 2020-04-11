@@ -11,7 +11,7 @@
 	<groupId>com.dbermejos</groupId>
 	<artifactId>springwebapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springwebapp.course</name>
+	<name>SpringWebApp</name>
 	<description>Project Example of a Spring web App.</description>
 
 	<properties>
