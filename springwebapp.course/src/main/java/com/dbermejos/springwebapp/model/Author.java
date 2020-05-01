@@ -19,7 +19,7 @@ public class Author {
 	private Long id;
 	private String firstName;
 	private String lastName;
-	@ManyToMany(mappedBy="authors")
+	@ManyToMany(mappedBy = "authors")
 	private Set<Book> books;
 
 	public Author() {
@@ -60,6 +60,27 @@ public class Author {
 	@Override
 	public String toString() {
 		return "Author [firstName=" + firstName + ", lastName=" + lastName + ", books=" + books + "]";
+	}
+
+	/**
+	 * {@inheritedDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
+
+	/**
+	 * {@inheritedDoc}
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if ((obj == null || getClass() != obj.getClass()))
+			return false;
+		Author author = (Author) obj;
+		return id != null ? id.equals(author.id) : author.id == null;
 	}
 
 }

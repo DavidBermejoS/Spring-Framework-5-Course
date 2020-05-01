@@ -25,11 +25,7 @@ public class Book {
 	private String title;
 	private String isbn;
 	@ManyToMany
-	@JoinTable(
-			name = "author_book",
-			joinColumns=@JoinColumn(name="book_id"),
-			inverseJoinColumns=@JoinColumn(name="author_id")
-			)
+	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
 	private Set<Author> authors;
 
 	public Book() {
@@ -78,6 +74,27 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [title=" + title + ", isbn=" + isbn + "]";
+	}
+
+	/**
+	 * {@inheritedDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return id != null ? id.hashCode() : 0;
+	}
+
+	/**
+	 * {@inheritedDoc}
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if ((obj == null || getClass() != obj.getClass()))
+			return false;
+		Book book = (Book) obj;
+		return id != null ? id.equals(book.id) : book.id == null;
 	}
 
 }
