@@ -19,6 +19,7 @@ public class Publisher {
 	private String city;
 	private String state;
 	private String zip;
+	private String name;
 	
 	@OneToMany
 	@JoinColumn(name="publisher_id")
@@ -35,6 +36,14 @@ public class Publisher {
 	}
 	
 	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	/**
 	 * @return the books

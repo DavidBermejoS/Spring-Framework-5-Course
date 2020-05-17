@@ -29,6 +29,8 @@ public class BootStrapData implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
+		
 		Author a1 = new Author("Eric","Evans");
 		Book b1 = new Book("Domain Driven Design","123123123");
 		a1.getBooks().add(b1);
@@ -46,11 +48,16 @@ public class BootStrapData implements CommandLineRunner {
 		bookRepository.save(b2);
 		
 		Publisher p1 = new Publisher("C/ Example n1","Madrid","Madrid","28035");
+		p1.setName("ISBN Publishers");
+		
 		p1.getBooks().add(b2);
 		b2.setPublisher(p1);
+		p1.getBooks().add(b1);
+		b1.setPublisher(p1);
 		
 		publisherRepository.save(p1);
 		bookRepository.save(b2);
+		bookRepository.save(b1);
 		
 		
 		System.out.println("---BOOTRSATP INITIALIZE DATA ----");

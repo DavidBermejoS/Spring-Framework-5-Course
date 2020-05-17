@@ -59,7 +59,7 @@ public class Author {
 
 	@Override
 	public String toString() {
-		return "Author [firstName=" + firstName + ", lastName=" + lastName + ", books=" + books + "]";
+		return "Author [firstName=" + firstName + ", lastName=" + lastName +"]";
 	}
 
 	/**

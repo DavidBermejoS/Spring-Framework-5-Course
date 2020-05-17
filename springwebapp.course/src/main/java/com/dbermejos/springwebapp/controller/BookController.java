@@ -24,7 +24,7 @@ public class BookController {
 	public String getBooks(Model model) {
 		//in the model parameter it will be added all the books inside the repository
 		model.addAttribute("books",bookRepository.findAll());
-		return "books";
+		return "books/list";
 	}
 
 }
