@@ -3,6 +3,7 @@
  */
 package com.dbermejos.springwebapp.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 /**
  * @author dbermejo
@@ -24,19 +26,38 @@ public class Book {
 	private Long id;
 	private String title;
 	private String isbn;
+	
+	@ManyToOne
+	private Publisher publisher;
+	
 	@ManyToMany
 	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
-	private Set<Author> authors;
+	private Set<Author> authors = new HashSet<>();
 
 	public Book() {
 
 	}
 
-	public Book(String title, String isbn, Set<Author> authors) {
+	public Book(String title, String isbn) {
 		super();
 		this.title = title;
 		this.isbn = isbn;
-		this.authors = authors;
+	}
+
+	
+	
+	/**
+	 * @return the publisher
+	 */
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+	/**
+	 * @param publisher the publisher to set
+	 */
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 
 	public Long getId() {
@@ -71,9 +92,14 @@ public class Book {
 		this.authors = authors;
 	}
 
+
+	
+	/**
+	 * {@inheritedDoc}
+	 */
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", isbn=" + isbn + "]";
+		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", publisher=" + publisher + "]";
 	}
 
 	/**

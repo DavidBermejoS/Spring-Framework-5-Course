@@ -1,9 +1,14 @@
 package com.dbermejos.springwebapp.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Publisher {
@@ -15,8 +20,34 @@ public class Publisher {
 	private String state;
 	private String zip;
 	
+	@OneToMany
+	@JoinColumn(name="publisher_id")
+	private Set<Book> books = new HashSet<>();
 	public Publisher(){
 		
+	}
+	
+	public Publisher(String addressLine1, String city, String state, String zip){
+		this.addessLine1 = addressLine1;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+	}
+	
+	
+
+	/**
+	 * @return the books
+	 */
+	public Set<Book> getBooks() {
+		return books;
+	}
+
+	/**
+	 * @param books the books to set
+	 */
+	public void setBooks(Set<Book> books) {
+		this.books = books;
 	}
 
 	public Long getId() {
